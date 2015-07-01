@@ -1,38 +1,25 @@
 package adventuregame;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Boy extends Character {
-	private boolean _HasWeapon;
+	private boolean _hasWeapon;
 	public Boy(String name) {
 		super(name);
-		_HasWeapon = false;
+		_hasWeapon = false;
 	}
 	public int attack() {
 		Random rn = new Random();
-		int n = 10 - 1 + 1;
-		int i = rn.nextInt(n);
-		int randomNum = 10 + i;
-		if (_HasWeapon == true) {
-		 randomNum = randomNum + 20;
-		} 
-		System.out.println(this.getName() + " whacks the pedo for " + randomNum
-				+ " points of damage.  (Press Enter to continue)");
-		System.out.println();
-		Scanner in = new Scanner(System.in);
-		try {
-			System.in.read();
-		} catch (Exception e) {
-			e.printStackTrace();
-			in.close();
+		int randomNum = rn.nextInt(10) + 11;
+		if (_hasWeapon) {
+			randomNum = randomNum + 20;
 		}
 		return randomNum;
 	}
-	public boolean getW() {
-		return _HasWeapon;
+	public boolean getHasWeapon() {
+		return _hasWeapon;
 	}
-	public void setW(boolean hasweapon) {
-		this._HasWeapon = hasweapon;
+	public void setHasWeapon(boolean hasWeapon) {
+		this._hasWeapon = hasWeapon;
 	}
 }
