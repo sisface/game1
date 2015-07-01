@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Boy extends Character {
 	private boolean _hasWeapon;
+
 	public Boy(String name) {
 		super(name);
 		_hasWeapon = false;

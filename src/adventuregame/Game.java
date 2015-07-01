@@ -26,12 +26,12 @@ public class Game {
 		System.out
 				.println("You see a toy on the ground.  Wield it? (Press E to equip toy)");
 		String userInput = scan.next();
-		if(userInput.equalsIgnoreCase("E")) {
+		if (userInput.equalsIgnoreCase("E")) {
 			boy.setHasWeapon(true);
 			System.out.println("You pick up the toy to use as a weapon.");
 		} else {
 			System.out
-			.println("You decide to do battle armed only with your naked fists.");
+					.println("You decide to do battle armed only with your naked fists.");
 		}
 		System.out.println();
 		pedos[0] = new Pedo("Uncle Gary");
@@ -50,7 +50,8 @@ public class Game {
 			while (pedos[i].getHp() >= 0) {
 				boy.setHp(boy.getHp() - pedos[i].attack());
 				int boyAttackDmg = boy.attack();
-				System.out.println(boy.getName() + " whacks the pedo for " + boyAttackDmg
+				System.out.println(boy.getName() + " whacks the pedo for "
+						+ boyAttackDmg
 						+ " points of damage.  (Press Enter to continue)");
 				try {
 					System.in.read();
@@ -59,6 +60,10 @@ public class Game {
 					scan.close();
 				}
 				pedos[i].setHp(pedos[i].getHp() - boyAttackDmg);
+				if (boy.getHp() <= 0) {
+					System.out.println("Your boyhood dies with you.");
+					System.exit(0);
+				}
 			}
 			System.out.println(pedos[i].getName()
 					+ " is defeated! He slinks off dejectedly.");
